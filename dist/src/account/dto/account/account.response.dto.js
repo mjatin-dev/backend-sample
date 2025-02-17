@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AccountResponseDto = void 0;
+const openapi = require("@nestjs/swagger");
+class AccountResponseDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { accountId: { required: true, type: () => Number }, accountName: { required: true, type: () => String }, description: { required: true, type: () => String }, accountTypeId: { required: true, type: () => Number }, accountStageId: { required: true, type: () => Number }, accountStatus: { required: true, type: () => Boolean }, company: { required: true, type: () => String }, webURL: { required: true, type: () => String }, industryId: { required: true, type: () => Number }, foundedDate: { required: true, type: () => Date }, employeesNumber: { required: true, type: () => Number }, revenuePerYear: { required: true, type: () => Number }, childOf: { required: true, type: () => Number }, createDate: { required: true, type: () => Date }, updateDate: { required: true, type: () => Date }, createdBy: { required: true, type: () => Number }, tenantUserId: { required: false, type: () => Number }, tenantUser: { required: false, type: () => ({ userId: { required: true, type: () => Number }, userName: { required: true, type: () => String } }) }, contactInfo: { required: false, type: () => ({ accountContInfoId: { required: true, type: () => Number }, phoneNumber: { required: false, type: () => String }, mobileNumber: { required: false, type: () => String }, country: { required: false, type: () => String }, addressState: { required: false, type: () => String }, street: { required: false, type: () => String }, city: { required: false, type: () => String }, zip: { required: false, type: () => String }, email: { required: false, type: () => String } }) }, contacts: { required: false, type: () => [require("../../../contact/entities/contact.entity").Contact] } };
+    }
+}
+exports.AccountResponseDto = AccountResponseDto;
+//# sourceMappingURL=account.response.dto.js.map
