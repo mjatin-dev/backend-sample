@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ContactResponseDto = void 0;
+const openapi = require("@nestjs/swagger");
+class ContactResponseDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { contactId: { required: true, type: () => Number }, ssid: { required: true, type: () => String }, firstName: { required: true, type: () => String }, middleName: { required: true, type: () => String }, lastName: { required: true, type: () => String }, title: { required: true, type: () => String }, image: { required: true, type: () => String }, contactSourceId: { required: true, type: () => Number }, contactStatusId: { required: true, type: () => Number }, contactStageId: { required: true, type: () => Number }, contactType: { required: true, enum: require("../../types").ContactType }, accountId: { required: true, type: () => Number }, createDate: { required: true, type: () => Date }, updateDate: { required: true, type: () => Date }, workDepartmentId: { required: true, type: () => Number }, reportsTo: { required: true, type: () => Number }, createdBy: { required: true, type: () => Number }, tenantUserId: { required: false, type: () => Number }, tenantUser: { required: false, type: () => ({ userId: { required: true, type: () => Number }, userName: { required: true, type: () => String }, tenantId: { required: false, type: () => Number } }) }, contactInfo: { required: false, type: () => ({ contactContInfoId: { required: true, type: () => Number }, phoneNumber: { required: false, type: () => String }, mobileNumber: { required: false, type: () => String }, country: { required: false, type: () => String }, addressState: { required: false, type: () => String }, street: { required: false, type: () => String }, city: { required: false, type: () => String }, zip: { required: false, type: () => String }, email: { required: false, type: () => String } }) }, account: { required: false, type: () => ({ accountId: { required: true, type: () => Number }, accountName: { required: true, type: () => String }, description: { required: true, type: () => String }, company: { required: true, type: () => String }, webURL: { required: true, type: () => String } }) } };
+    }
+}
+exports.ContactResponseDto = ContactResponseDto;
+//# sourceMappingURL=contact.response.dto.js.map

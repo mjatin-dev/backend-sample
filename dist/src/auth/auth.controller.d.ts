@@ -1,0 +1,32 @@
+import { BadRequestException } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { SuccessResponseObject } from '../common/http';
+import { LoginRequestDto } from './dto/login.request.dto';
+import { ChangePasswordRequestDto } from './dto/change-password.request.dto';
+import { SetPasswordRequestDto } from './dto/set-password.request.dto';
+import { InitPasswordResetRequestDto } from './dto/init-password-reset.request.dto';
+import { CheckEmailRequestDto } from './dto/check-email.request.dto';
+import { SignUpRequestDto } from './dto/signup.request.dto';
+import { ConfirmPasswordResetDto } from './dto/confirm-password-reset.request.dto';
+import { SalesforceAuthService } from '@/core/lib/salesforce/salesforce-auth.service';
+import { UserService } from '@/user/services/user.service';
+import { VerifyRequestDto } from './dto/verify-email.request.dto';
+export declare class AuthController {
+    private readonly authService;
+    private readonly salesforceAuthService;
+    private readonly userService;
+    private readonly logger;
+    constructor(authService: AuthService, salesforceAuthService: SalesforceAuthService, userService: UserService);
+    login(body: LoginRequestDto): Promise<SuccessResponseObject>;
+    integrationLoginRequest(appId: string): Promise<SuccessResponseObject | BadRequestException>;
+    integrationLoginResult(appId: string, body: any): Promise<SuccessResponseObject | BadRequestException>;
+    setPassword(body: SetPasswordRequestDto): Promise<SuccessResponseObject>;
+    initPasswordReset(body: InitPasswordResetRequestDto): Promise<SuccessResponseObject>;
+    confirmPasswordReset(body: ConfirmPasswordResetDto): Promise<SuccessResponseObject>;
+    changePassword(body: ChangePasswordRequestDto): Promise<SuccessResponseObject>;
+    checkEmail(body: CheckEmailRequestDto): Promise<SuccessResponseObject>;
+    verifyEmail(body: VerifyRequestDto): Promise<SuccessResponseObject>;
+    registerUser(body: SignUpRequestDto): Promise<SuccessResponseObject>;
+    resendEmail(body: CheckEmailRequestDto): Promise<SuccessResponseObject>;
+    logout(id: string): Promise<SuccessResponseObject>;
+}
