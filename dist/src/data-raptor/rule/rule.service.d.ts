@@ -1,0 +1,43 @@
+import { RuleRepository } from './rule.repository';
+import { RuleStatus } from '../types';
+import { Rule } from './rule.entity';
+import { FindManyOptions, FindOneOptions } from 'typeorm';
+export declare class RuleService {
+    private readonly ruleRepository;
+    constructor(ruleRepository: RuleRepository);
+    createRule(rule: Partial<Rule>, dataMigrationId: string): Promise<Rule>;
+    deleteRule(id: string): Promise<import("typeorm").UpdateResult>;
+    findOne(options: FindOneOptions<Rule>): Promise<Rule>;
+    findMany(options: FindManyOptions<Rule>): Promise<Rule[]>;
+    findByMigrationAndTable(dataMigrationId: string, table: string): Promise<Rule[]>;
+    update(id: string, data: Partial<Rule>): Promise<{
+        status: RuleStatus.REQUESTED;
+        statusDate: Date;
+        ruleId: string;
+        name: string;
+        table: string;
+        rule: import("./dto/rule.dto").RuleDto;
+        description: string;
+        formattedRule: import("./dto/formatted-rule.dto").FormattedRuleDto;
+        previousFormattedRule: import("./dto/formatted-rule.dto").FormattedRuleDto;
+        frontEndObject: import("./dto/front-end-rule.dto").FrontEndRuleDto;
+        dataMigrationId: string;
+        migration?: import("typeorm").Migration;
+        violationScore: number;
+        type: string;
+        risk: string;
+        department: string;
+        active: boolean;
+        deletedAt: Date;
+        tableDependencies: string[];
+        violatedRowCount: number;
+        ruleTemplateId?: string;
+        RuleTemplateObject: import("../rule-template/rule-template.entity").RuleTemplate;
+        RiskObject: import("../rule-risk/rule-risk.entity").RuleRisk;
+        TypeObject: import("../rule-type/rule-type.entity").RuleType;
+        DepartmentObject: import("../rule-department/rule-department.entity").RuleDepartment;
+        tempTables: import("../rule-temp-table/rule-temp-table.entity").RuleTempTable[];
+        createdAt: Date;
+        updatedAt: Date;
+    } & Rule>;
+}

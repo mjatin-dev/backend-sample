@@ -1,0 +1,35 @@
+import { Account } from '@/account/entities/account.entity';
+import { Contact } from '@/contact/entities/contact.entity';
+import { IntegrationState } from '@/integration/integrationState.entity';
+import { Product } from '@/product/entities/product.entity';
+import { Tenant } from '@/tenant/entities/tenant.entity';
+import { JobRoleForTenantUser } from '@/tenantUserJobRole/entities/jobRoleForTenantUser.entity';
+import { UserType } from '../types';
+import { UserContactInformation } from './userContactInformation.entity';
+import { UserPermission } from './userPermission.entity';
+import { DataMigration } from '@/data-migration/entities/dataMigration.entity';
+export declare class User {
+    userId: number;
+    userName: string;
+    userEmail: string;
+    userPassword?: string;
+    userType: UserType;
+    userCognitoId: string;
+    userCreatedBy?: number;
+    userModifiedBy?: number;
+    userCreatedAt: Date;
+    userUpdatedAt: Date;
+    userActive: boolean;
+    tenantId?: number;
+    tenant?: Tenant;
+    contactInfo?: UserContactInformation;
+    userPermissions?: UserPermission[];
+    integratedApps?: IntegrationState[];
+    jobRoleForTenantUsers?: JobRoleForTenantUser[];
+    createdAccounts?: Account[];
+    ownedAccounts?: Account[];
+    createdContacts?: Contact[];
+    ownedContacts?: Contact[];
+    createdProducts?: Product[];
+    dataMigrations?: DataMigration[];
+}

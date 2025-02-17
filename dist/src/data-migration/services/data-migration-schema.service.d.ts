@@ -1,0 +1,31 @@
+import { DataMigrationSchemaRepository } from '../repositories/dataMigrationSchema.repository';
+import { paginationOptions } from './../types';
+import { Condition } from '../dto/condition.dto';
+import { FuzzySearchDto } from '../dto/post-fuzzy-search';
+import { FunctionValue } from '../dto/function-value.dto';
+import { OrderByOption } from '../dto/getDataMigrationTableRecords.dto';
+import { GetRecordStatsScoreDiffParams, GetRuleStatParams, GetTableStatsParams } from '../dto/get-table-stats.dto';
+export declare class DataMigrationSchemaService {
+    private dataMigrationSchemaRepository;
+    constructor(dataMigrationSchemaRepository: DataMigrationSchemaRepository);
+    getSchemaTables(tenantId: number, dataSourceId: string): Promise<any[]>;
+    getSchemaDataTotalCount(tenantId: number, dataSourceId: string, tableId: string): Promise<any[]>;
+    getSchemaTableFields(tenantId: number, dataSourceId: string, tableId: string): Promise<any[]>;
+    getSchemaTableField(tenantId: number, dataSourceId: string, tableId: string, fieldName: string): Promise<any>;
+    getSchemaTableForeignReferences(tenantId: number, dataSourceId: string, tableId: string): Promise<any[]>;
+    getSchemaTableLookups(tenantId: number, dataSourceId: string, tableId: string): Promise<any[]>;
+    getMinAndMaxValue(tenantId: number, dataSourceId: string, tableId: string, fieldName: string): Promise<any>;
+    getFieldValueOptions(tenantId: number, dataSourceId: string, tableId: string, fieldName: string): Promise<any[]>;
+    getTableData(tenantId: number, dataSourceId: string, tableId: string, action: string, paginationOptions?: paginationOptions, conditions?: Condition[], fields?: string[], orderBy?: OrderByOption[]): Promise<any[]>;
+    getEmailsData(tenantId: number, dataSourceId: string, tasksIds: string[]): Promise<any>;
+    getTableDataGroupCounter(tenantId: number, dataSourceId: string, tableId: string, conditions?: Condition[], groupBy?: (string | FunctionValue)[]): Promise<any[]>;
+    getFuzzySearch(tenantId: number, dataSourceId: string, tableId: string, fuzzySearchQuery: FuzzySearchDto): Promise<any[]>;
+    getDataValidationTableData(tenantId: number, dataSourceId: string, tableId: string, paginationOptions?: paginationOptions, ruleIds?: string[]): Promise<any[]>;
+    getDataValidationTableTotalData(tenantId: number, dataSourceId: string, tableId: string, ruleIds?: string[]): Promise<any[]>;
+    updateTableData(tenantId: number, dataSourceId: string, tableId: string, updates: any[]): Promise<void[]>;
+    getBookmarkedTableData(tenantId: number, dataSourceId: string, tableId: string): Promise<any[]>;
+    getMigrationRecord(tenantId: number, dataSourceId: string, tableId: string, recordId: string): Promise<any>;
+    getTableStats(params: GetTableStatsParams): Promise<any>;
+    getRecordStatsScoreDiff(params: GetRecordStatsScoreDiffParams): Promise<any>;
+    getRuleStats(params: GetRuleStatParams): Promise<any>;
+}

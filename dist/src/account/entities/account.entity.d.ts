@@ -1,0 +1,38 @@
+import { Contact } from '@/contact/entities/contact.entity';
+import { Deal } from '@/deal/entities/deal.entity';
+import { Industry } from '@/industry/industry.entity';
+import { TenantAccount } from '@/tenant/entities/tenantAccount.entity';
+import { User } from '@/user/entities/user.entity';
+import { AccountStage } from './accountStage.entity';
+import { AccountContactInformation } from './accounttContactInformation.entity';
+import { AccountType } from './accountType.entity';
+export declare class Account {
+    accountId: number;
+    accountName: string;
+    description: string;
+    company: string;
+    webURL: string;
+    industryId: number;
+    foundedDate: Date;
+    employeesNumber: number;
+    revenuePerYear: number;
+    childOf: number;
+    createDate: Date;
+    updateDate: Date;
+    createdBy: number;
+    tenantUserId?: number;
+    accountTypeId: number;
+    accountStageId: number;
+    accountStatus: boolean;
+    contacts?: Contact[];
+    deals?: Deal[];
+    industry?: Industry;
+    parent?: Account;
+    childs?: Account[];
+    accountCreater?: User;
+    accountType?: AccountType;
+    accountStage?: AccountStage;
+    tenantUser?: User;
+    tenantAccounts?: TenantAccount[];
+    contactInfo?: AccountContactInformation;
+}

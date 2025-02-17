@@ -1,0 +1,36 @@
+import { Account } from '@/account/entities/account.entity';
+import { Deal } from '@/deal/entities/deal.entity';
+import { User } from '@/user/entities/user.entity';
+import { ContactType } from '../types';
+import { ContactContactInformation } from './contactContactInformation.entity';
+import { ContactSource } from './contactSource.entity';
+import { ContactStage } from './contactStage.entity';
+import { ContactStatus } from './contactStatus.entity';
+export declare class Contact {
+    contactId: number;
+    ssid: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    title: string;
+    image: string;
+    createDate: Date;
+    updateDate: Date;
+    workDepartmentId: number;
+    reportsTo: number;
+    contactStageId: number;
+    contactStatusId: number;
+    contactSourceId: number;
+    contactType: ContactType;
+    createdBy: number;
+    tenantUserId: number;
+    accountId: number;
+    account?: Account;
+    deals?: Deal[];
+    contactCreator?: User;
+    tenantUser?: User;
+    contactInfo: ContactContactInformation;
+    contactStage?: ContactStage;
+    contactStatus?: ContactStatus;
+    contactSource?: ContactSource;
+}
